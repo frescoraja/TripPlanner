@@ -17,9 +17,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-.user-forms {
-  margin: 100px;
+.content {
+  margin-top: 100px;
 }
 
 .alert {
@@ -34,4 +33,14 @@
 .alert-success {
   background-color: rgba(0, 255, 79, 0.34);
   color: green;
+}
+
+.navbar {
+  box-shadow: 0px 4px 8px black;
+}
+
+#logo {
+  height: 42px;
+  margin: 4px;
+  float: left;
 }

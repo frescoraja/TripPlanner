@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:index, :show]
+  def index
+    @users = User.all.where.not(id: current_user.id).paginate(page: params[:page], per_page: 25)
+  end
+
   def new
     @user = User.new
   end
@@ -12,6 +17,10 @@ class UsersController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private

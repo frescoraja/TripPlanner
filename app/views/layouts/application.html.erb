@@ -9,14 +9,14 @@
 </head>
 <body>
 
-<%= render 'layouts/header' %>
-<div class="container">
-  <%= yield %>
-  <% flash.each do |message_type, messages| %>
-    <% messages.each do |msg| %>
-      <%= content_tag(:div, msg, class: "alert alert-#{message_type} col-xs-4 col-xs-offset-4") %>
+  <%= render 'layouts/header' %>
+  <div class="container content">
+    <%= yield %>
+    <% flash.each do |message_type, messages| %>
+      <% messages.each do |msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-#{message_type} col-xs-4 col-xs-offset-4") %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 </body>
 </html>
