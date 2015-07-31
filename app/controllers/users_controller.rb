@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_login, only: [:index, :show]
   def index
-    @users = User.all.where.not(id: current_user.id).paginate(page: params[:page], per_page: 25)
+    @users = User.all.where.not(id: current_user.id).paginate(page: params[:page], per_page: 20)
   end
 
   def new
