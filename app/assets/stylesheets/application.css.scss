@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.user-forms {
+  margin: 100px;
+}
+
+.alert {
+  text-align: center;
+}
+
+.alert-errors {
+  background-color: rgba(255, 49, 0, 0.44);
+  color: red;
+}
+
+.alert-success {
+  background-color: rgba(0, 255, 79, 0.34);
+  color: green;
+}

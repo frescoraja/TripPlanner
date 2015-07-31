@@ -1,0 +1,7 @@
+<div class="trip-plan-index col-xs-offset-1">
+  <% @trip_plans.each do |t| %>
+    <% cache(t) do %>
+      <%= link_to t.title, trip_plan_url(t) %>
+    <% end %>
+  <% end %>
+</div>

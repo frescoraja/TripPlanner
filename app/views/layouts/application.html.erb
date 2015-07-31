@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TripPlanner</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
 
-<%= yield %>
-
+<%= render 'layouts/header' %>
+<div class="container">
+  <%= yield %>
+  <% flash.each do |message_type, messages| %>
+    <% messages.each do |msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-#{message_type} col-xs-4 col-xs-offset-4") %>
+    <% end %>
+  <% end %>
+</div>
 </body>
 </html>
