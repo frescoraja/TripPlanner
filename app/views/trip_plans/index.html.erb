@@ -2,7 +2,7 @@
 <h1>All Trip Plans</h1>
 <div class="trip-plan-index row">
   <% @trip_plans.each do |t| %>
-    <% cache(t) do %>
+    <% cache(t.user) do %>
       <div class="col-xs-4">
         <div class="trip-plan-tile">
           <div class="trip-plan-title">
