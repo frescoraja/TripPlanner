@@ -1,12 +1,17 @@
 <% provide(:title, 'Trip Plan Users Index') %>
 <div class="col-xs-8 col-xs-offset-2">
   <ul class="user-index">
+    <% if @users.count == 0 %>
+      No other users at this time..
+    <% end %>
     <% @users.each do |u| %>
       <li>
         <% cache(u) do %>
-          <%= link_to u.login.capitalize, user_url(u) %> |
-          <%= u.trip_plans.count %> Trips Planned |
-          Signed up <%= time_ago_in_words(u.created_at) %> ago.
+          <h3>
+            <%= link_to u.login.capitalize, user_url(u) %> |
+            <%= u.trip_plans.count %> Trips Planned |
+            Signed up <%= time_ago_in_words(u.created_at) %> ago.
+          </h3>
         <% end %>
       </li>
     <% end %>

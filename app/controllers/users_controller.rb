@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash.now[:notices] = "Registration Successful!"
+      flash.now[:success] = "Registration Successful!"
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -20,7 +20,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = params[:id].nil? ? current_user : User.find(params[:id])
+    @trip_plans = @user.trip_plans.paginate(page: params[:page], per_page: 9)
   end
 
   private

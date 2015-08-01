@@ -17,22 +17,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
 .content {
-  margin-top: 100px;
-}
-
-.alert {
-  text-align: center;
-}
-
-.alert-errors {
-  background-color: rgba(255, 49, 0, 0.44);
-  color: red;
-}
-
-.alert-success {
-  background-color: rgba(0, 255, 79, 0.34);
-  color: green;
+  margin-top: 80px;
+  font-family: 'Slabo 27px', serif;
 }
 
 .navbar {
@@ -43,4 +36,73 @@
   height: 42px;
   margin: 4px;
   float: left;
+}
+
+.col-xs-4 {
+  padding-bottom: 30px;
+}
+
+.row {
+  margin-top: 20px;
+}
+
+.trip-plan-tile {
+  font-family: 'Slabo 27px', serif;
+  text-align: center;
+  padding: 25px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.44);
+  box-shadow: 0px 1px 5px black;
+  height: 460px;
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.trip-plan-title {
+  background-color: rgb(129, 187, 255);
+  height: 75px;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.trip-plan-user-info {
+  a {
+    color: rgb(57, 83, 255);
+  }
+}
+
+.trip-plan-img {
+  height: 360px;
+  width: 360px;
+  max-width: 90%;
+  max-height: 75%;
+  margin: auto;
+  border: 1px solid black;
+}
+
+.img-upload {
+  margin: 10px 50px;
+}
+
+.trip-img {
+  margin-right: 50px;
+}
+
+.alert {
+  text-align: center;
+  list-style: none;
+}
+
+.alert-errors {
+  background-color: rgba(255, 49, 0, 0.44);
+  color: red;
+  padding: 0;
 }

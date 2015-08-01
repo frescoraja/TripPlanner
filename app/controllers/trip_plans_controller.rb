@@ -4,6 +4,16 @@ class TripPlansController < ApplicationController
     @trip_plans = TripPlan.all.paginate(page: params[:page], per_page: 9)
   end
 
+  def create
+    @trip_plan = current_user.trip_plans.new(trip_plan_params)
+    @trip_plan.save
+    redirect_to request.referrer
+  end
+
+  def new
+    @trip_plan = current_user.trip_plans.new
+  end
+
   private
   def trip_plan_params
     params.require(:trip_plan).permit(:title, :picture)

@@ -6,6 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-guest_pw = 'password'
+pw = 'password'
 
-User.create(login: "Guest_User", password: guest_pw, password_confirmation: guest_pw)
+50.times do
+  User.create(login: Faker::Internet.user_name, password: pw, password_confirmation: pw)
+end
+
+(1..50).each do |n|
+  rand(5).times do
+    new_dest = "#{Faker::Address.city}, #{Faker::Address.state}"
+    TripPlan.create(title: new_dest, user_id: n)
+  end
+end
+
+User.create(login: "Guest_User", password: pw, password_confirmation: pw)

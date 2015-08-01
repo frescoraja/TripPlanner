@@ -1,9 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'pg'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'fog'
 gem 'authlogic'
 gem 'will_paginate'
 gem 'sass-rails', '~> 5.0'
@@ -15,6 +12,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'figaro'
+gem 'faker'
 gem 'puma'
 
 group :development, :test do

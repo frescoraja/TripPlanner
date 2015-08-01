@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to root_url
+      redirect_to current_user
     else
       flash.now[:errors] = @user_session.errors.full_messages
       render :new

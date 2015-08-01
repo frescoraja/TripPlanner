@@ -1,15 +1,29 @@
 <% provide(:title, 'Trip Plan Index') %>
-<div class="trip-plan-index col-xs-offset-1">
+<h1>All Trip Plans</h1>
+<div class="trip-plan-index row">
   <% @trip_plans.each do |t| %>
     <% cache(t) do %>
-      <div class="trip-plan-tile">
-        <%= link_to t.title, trip_plan_url(t) %>
-        <img src=<%= t.picture %> alt="Trip Plan Image" class="trip-plan-img"/>
-        <span class="trip-plan-user-info">
-          by <%= link_to t.user.login, user_url(t.user) %> |
-          Posted <%= time_ago_in_words(t.created_at) %> ago.
-        </span>
+      <div class="col-xs-4">
+        <div class="trip-plan-tile">
+          <div class="trip-plan-title">
+            <%= t.title %>
+          </div>
+          <% if current_user == t.user %>
+            <% name = 'You' %>
+          <% else %>
+            <% name = t.user.login %>
+          <% end %>
+          <%= image_tag t.picture, class: 'trip-plan-img' %>
+          <span class="trip-plan-user-info">
+            Created by <%= link_to name, user_url(t.user) %>
+            <%= time_ago_in_words(t.created_at) %> ago.
+          </span>
+        </div>
       </div>
     <% end %>
   <% end %>
 </div>
+<center>
+  <hr>
+  <%= will_paginate(@trip_plans) %>
+</center>

@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require upload_img_widget
+//= require serializejson
 //= require turbolinks
 //= require bootstrap
 //= require tripler

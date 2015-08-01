@@ -1,0 +1,31 @@
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Trip Plan</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(:trip_plan, url: trip_plans_url) do |f| %>
+
+          <%= f.label :title %>
+          <%= f.text_field :title, class:'form-control', placeholder: 'Title/Description' %>
+          <br>
+          <div class="row img-upload">
+            <%= link_to 'Upload an image..', 'javascript:void(0)', id: 'cloudinary' %>
+            <% image_str = "default" + rand(1..6).to_s + ".jpg" %>
+            <%= f.hidden_field :picture, value: image_str %>
+            <%= image_tag(image_str, size: '120x120', class: 'trip-img pull-right') %>
+          </div>
+          <br>
+          <br>
+          <div class="modal-footer">
+            <center>
+              <%= f.submit 'Add Trip Plan', class: 'btn btn-primary', id: 'new-trip-button' %>
+            </center>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
