@@ -4,17 +4,13 @@
 <%= render 'user_count', user_count: User.count %>
 <div class="trip-plan-index row">
   <% @trip_plans.each do |t| %>
-    <% cache(t.user) do %>
+    <% cache_unless(t.user == current_user, t) do %>
       <div class="col-xs-4">
         <div class="trip-plan-tile">
           <div class="trip-plan-title">
             <%= t.title %>
           </div>
-          <% if current_user == t.user %>
-            <% name = 'You' %>
-          <% else %>
-            <% name = t.user.login %>
-          <% end %>
+          <% name = current_user == t.user ? 'You' : t.user.login %>
           <%= image_tag t.picture, class: 'trip-plan-img' %>
           <span class="trip-plan-user-info">
             Created by <%= link_to name, user_url(t.user) %>
