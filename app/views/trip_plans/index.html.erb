@@ -1,5 +1,7 @@
 <% provide(:title, 'Trip Plan Index') %>
 <h1>All Trip Plans</h1>
+<%= render 'trip_count', trip_count: @trip_plans.count %>
+<%= render 'user_count', user_count: User.count %>
 <div class="trip-plan-index row">
   <% @trip_plans.each do |t| %>
     <% cache(t.user) do %>

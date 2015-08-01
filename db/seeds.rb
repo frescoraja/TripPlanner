@@ -12,11 +12,11 @@ pw = 'password'
   User.create(login: Faker::Internet.user_name, password: pw, password_confirmation: pw)
 end
 
+User.create(login: "Guest_User", password: pw, password_confirmation: pw)
+
 User.all.each do |user|
   rand(1..10).times do
     new_dest = "#{Faker::Address.city}, #{Faker::Address.state}"
     user.trip_plans.create(title: new_dest)
   end
 end
-
-User.create(login: "Guest_User", password: pw, password_confirmation: pw)

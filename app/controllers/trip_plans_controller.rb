@@ -7,6 +7,7 @@ class TripPlansController < ApplicationController
   def create
     @trip_plan = current_user.trip_plans.new(trip_plan_params)
     @trip_plan.save
+    expire_fragment('total_trip_plans')
     redirect_to request.referrer
   end
 

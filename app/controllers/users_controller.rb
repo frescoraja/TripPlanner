@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      expire_fragment('total_user_count')
       flash.now[:success] = "Registration Successful!"
       redirect_to root_url
     else
