@@ -4,10 +4,10 @@
   <% else %>
     <%= @user.login %> has
   <% end %>
-  <%= pluralize(@trip_plans.count, "trip") %> planned:
+  <%= pluralize(@trip_plans.count, "trip") %> planned
 </h2>
 <div class="row">
-  <% if @trip_plans.none? %>
+  <% if @trip_plans.none? && current_user == @user %>
     <center>
       <a href="#" class="new-trip">Create a new trip plan now!</a>
     </center>
