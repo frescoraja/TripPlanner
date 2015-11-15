@@ -2,10 +2,10 @@
 <h1>All Trip Plans</h1>
 <%= render 'trip_count', trip_count: @trip_plans.count %>
 <%= render 'user_count', user_count: User.count %>
-<div class="trip-plan-index row">
+<div class="trip-plan-index">
   <% @trip_plans.each do |t| %>
     <% cache_unless(t.user == current_user, t) do %>
-      <div class="col-xs-4">
+
         <div class="trip-plan-tile">
           <div class="trip-plan-title">
             <%= t.title %>
@@ -17,7 +17,7 @@
             <%= time_ago_in_words(t.created_at) %> ago.
           </span>
         </div>
-      </div>
+
     <% end %>
   <% end %>
 </div>

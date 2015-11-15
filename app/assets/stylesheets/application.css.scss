@@ -38,12 +38,8 @@
   float: left;
 }
 
-.col-xs-4 {
-  padding-bottom: 30px;
-}
-
-.row {
-  margin-top: 20px;
+.trip-plan-index {
+  min-width: 900px;
 }
 
 .trip-plan-tile {
@@ -51,9 +47,13 @@
   text-align: center;
   padding: 25px;
   border-radius: 4px;
+  margin: 10px;
   border: 1px solid rgba(0, 0, 0, 0.44);
   box-shadow: 0px 1px 5px black;
   height: 460px;
+  width: 30%;
+  min-width: 300px;
+  display: inline-block;
   a {
     color: black;
     text-decoration: none;

@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'figaro'
 gem 'faker'
 gem 'newrelic_rpm'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
